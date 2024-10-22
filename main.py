@@ -1,3 +1,5 @@
+# Cole Ronkin Group 44
+
 def encode(password): #encodes password
     encoded_pass = ''
     for i in password:
@@ -19,10 +21,16 @@ if __name__ == '__main__':
         print_menu()
         print()
         option = int(input("Please enter an option: "))
-        if option == 1:
-            passcode = input("Please enter your password to encode: ")
-            passcode = encode(passcode)
-        if option == 2:
-            pass # decode method
+        try:
+            if option == 1:
+                passcode = input("Please enter your password to encode: ")
+                if len(passcode) != 8 or not passcode.isdigit(): #checks length of password and contents to be digit
+                    raise ValueError('Invalid Password')
+                passcode = encode(passcode)
+            elif option == 2:
+                #decode method
+                pass
+        except ValueError as excpt:
+            print(excpt)
         print()
 
