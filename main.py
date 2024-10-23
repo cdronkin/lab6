@@ -7,6 +7,14 @@ def encode(password): #encodes password
     print("Your password has been encoded and stored!")
     return encoded_pass
 
+def decode(encoded_password): # decode method - added by Alisha Chowdhury
+    decoded_password = ""
+    for digit in encoded_password:
+        new_digit = (int(digit) - 3)  # shifting the numbers down by 3
+        decoded_password += str(new_digit)  # recreating the decoded password
+    print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.\n")
+    return decoded_password
+
 def print_menu():
     print("Menu")
     print("-------------")
@@ -28,7 +36,8 @@ if __name__ == '__main__':
                     raise ValueError('Invalid Password')
                 passcode = encode(passcode)
             elif option == 2:
-                #decode method
+                # decode method
+                decode(passcode)
                 pass
         except ValueError as excpt:
             print(excpt)
