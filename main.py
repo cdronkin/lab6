@@ -36,7 +36,7 @@ if __name__ == '__main__':
                     raise ValueError('Invalid Password')
                 passcode = encode(passcode)
             elif option == 2:
-                # decode method
+                #decode method
                 decode(passcode)
                 pass
         except ValueError as excpt:
